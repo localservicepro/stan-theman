@@ -1,0 +1,12 @@
+{
+  "name": "Stan The Man Cleaning",
+  "short_name": "Stan The Man",
+  "description": "Window, gutter and exterior cleaning across Melbourne's Eastern Suburbs.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F0F0F",
+  "theme_color": "#0F0F0F",
+  "icons": [
+    { "src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
