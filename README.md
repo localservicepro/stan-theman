@@ -50,6 +50,14 @@ To swap any photo, drop a replacement over the same filename (keep it landscape/
 except `hero.webp` which is portrait 4:5). The contact page still uses a placeholder
 box for the **Google Map** embed (that's a map slot, not a photo).
 
+### Before/after sliders & service galleries
+The homepage "Real results" section and every service page have an **interactive
+before/after slider** (`.ba-slider` — drag the handle, or use the keyboard). The photos
+come from the client's "Gallery Stantheman" Drive folder. Each slider uses a matched
+`assets/img/ba-{service}-before.webp` / `-after.webp` pair; each service page also has a
+3-photo "Recent jobs" gallery (`{service}-1/2/3.webp`) and a "How we clean" process
+section. To swap a slider photo, replace the `-before`/`-after` pair (same 4:3 size).
+
 ### Meet-the-team photos
 The **About → Meet the team** section uses three **portrait (4:5)** photos of Stan,
 Sarah and Deanna: `assets/img/team-stan.webp`, `team-sarah.webp`, `team-deanna.webp`.
