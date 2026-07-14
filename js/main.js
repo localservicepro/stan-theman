@@ -74,6 +74,16 @@
     reveals.forEach(function (el) { el.classList.add("in"); });
   }
 
+  // Before/after image sliders — a transparent range input drives the reveal
+  // position (works with pointer, touch and keyboard); the visible handle follows.
+  document.querySelectorAll(".ba-slider").forEach(function (slider) {
+    var range = slider.querySelector(".ba-slider__range");
+    if (!range) return;
+    var setPos = function (v) { slider.style.setProperty("--pos", v + "%"); };
+    setPos(range.value);
+    range.addEventListener("input", function () { setPos(range.value); });
+  });
+
   // Current year
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();
