@@ -298,6 +298,22 @@ li { margin-bottom: .4rem; }
 .media-ph svg { width: min(60%, 200px); opacity: .9; }
 .map-embed { display: block; width: 100%; height: 340px; border: 0; border: 1px solid var(--line); border-radius: var(--radius); margin-top: 1.4rem; }
 
+/* "Where we work" section — content + map, with faded watermark */
+.areas-section { position: relative; overflow: hidden; }
+.areas-section .wrap { position: relative; z-index: 1; }
+.areas-watermark {
+  position: absolute; left: 0; right: 0; bottom: -.12em; z-index: 0; text-align: center;
+  font-family: var(--font-display); font-weight: 800; letter-spacing: -.02em; line-height: .8;
+  font-size: clamp(4rem, 15vw, 12rem); color: rgba(240, 237, 232, .035);
+  white-space: nowrap; pointer-events: none; user-select: none;
+}
+.map-card {
+  height: 100%; min-height: 420px; overflow: hidden; background: var(--surface-2);
+  border: 1px solid var(--line); border-top: 3px solid var(--orange);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.map-card .map-embed { margin: 0; height: 100%; min-height: 420px; border: 0; border-radius: 0; }
+
 /* Real photo frame (replaces media-ph placeholders) */
 .media-shot { margin: 0; border-radius: var(--radius); border: 1px solid var(--line); overflow: hidden; aspect-ratio: 4/3; background: var(--surface-2); box-shadow: var(--shadow); }
 .media-shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -426,6 +442,7 @@ html.js .reveal { transition-delay: calc(var(--d, 0) * 80ms); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .split { grid-template-columns: 1fr; }
   .split--fill .media-shot { min-height: 260px; }
+  .map-card, .map-card .map-embed { min-height: 300px; }
   .stats { grid-template-columns: 1fr 1fr; }
   .hero { min-height: 78vh; }
   .hero__badge { display: none; }
@@ -456,6 +473,8 @@ html.js .reveal { transition-delay: calc(var(--d, 0) * 80ms); }
   h1 { font-size: clamp(2rem, 8vw, 2.6rem); }
   .hero { min-height: 0; padding-top: 5.5rem; }
   .service-card { min-height: 260px; }
+  .areas-watermark { display: none; }
+  h2 { font-size: clamp(1.55rem, 6.2vw, 2.25rem); }
 }
 
 /* ---- Motion ---- */
