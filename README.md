@@ -41,20 +41,25 @@ python3 -m http.server 8000
 # then open http://localhost:8000
 ```
 
+## Photos
+Real job photos (from the client's Google Drive) are installed and self-hosted in
+`assets/img/` (optimised WebP), plus `assets/og-image.jpg` for social sharing:
+`hero`, `why-windows`, `exterior-home`, `window-cleaning`, `gutter-cleaning`,
+`pressure-washing`, `soft-washing`, `solar-panel-cleaning`, `about-team`.
+To swap any photo, drop a replacement over the same filename (keep it landscape/4:3,
+except `hero.webp` which is portrait 4:5). The contact page still uses a placeholder
+box for the **Google Map** embed (that's a map slot, not a photo).
+
 ## ✅ Before launch — swap these placeholders
-1. **Photos.** Replace the SVG placeholder tiles with real job photos. Source
-   images live in the client's Google Drive folder
-   (`Stan The Man (Exterior) Cleaning`). Add an `assets/og-image.jpg`
-   (1200×630) for social sharing — it's already referenced in the homepage `<head>`.
-2. **Reviews.** The testimonials on the homepage are representative placeholders.
+1. **Reviews.** The testimonials on the homepage are representative placeholders.
    Swap in real Google/Facebook reviews (and consider a live review widget +
    `AggregateRating` schema once reviews are connected).
-3. **Map.** Embed a Google Map of the Donvale service area on `contact.html`
+2. **Map.** Embed a Google Map of the Donvale service area on `contact.html`
    (placeholder is marked).
-4. **Confirm domain/NAP.** Everything targets `stanthemancleaning.com.au`. If the
+3. **Confirm domain/NAP.** Everything targets `stanthemancleaning.com.au`. If the
    final email differs (e.g. `info@stanthemanclean.com.au` from onboarding),
    find-and-replace before launch.
-5. **Search setup.** Verify Google Business Profile, connect Google Search
+4. **Search setup.** Verify Google Business Profile, connect Google Search
    Console + GA4, and submit `sitemap.xml`.
 
 ## GoHighLevel (GHL) CRM integration
