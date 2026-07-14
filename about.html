@@ -44,10 +44,16 @@
       </a>
       <ul class="nav__links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="services/window-cleaning.html">Window Cleaning</a></li>
-        <li><a href="services/gutter-cleaning.html">Gutter Cleaning</a></li>
-        <li><a href="services/pressure-washing.html">Pressure Washing</a></li>
-        <li><a href="services/solar-panel-cleaning.html">Solar Cleaning</a></li>
+        <li class="nav__item--has-menu">
+          <button class="nav__submenu-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services<svg class="nav__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+          <ul class="nav__submenu" id="services-menu">
+            <li><a href="services/window-cleaning.html">Window</a></li>
+            <li><a href="services/gutter-cleaning.html">Gutter</a></li>
+            <li><a href="services/pressure-washing.html">Pressure</a></li>
+            <li><a href="services/soft-washing.html">Soft Wash</a></li>
+            <li><a href="services/solar-panel-cleaning.html">Solar</a></li>
+          </ul>
+        </li>
         <li><a href="about.html" aria-current="page">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>

@@ -107,6 +107,38 @@ li { margin-bottom: .4rem; }
 .nav__links { display: flex; align-items: center; gap: 1.4rem; list-style: none; margin: 0; padding: 0; }
 .nav__links a { color: var(--text); font-weight: 500; font-size: .98rem; }
 .nav__links a:hover, .nav__links a[aria-current="page"] { color: var(--orange); }
+
+/* ---- Services dropdown ---- */
+.nav__item--has-menu { position: relative; }
+.nav__submenu-toggle {
+  display: inline-flex; align-items: center; gap: .35rem; background: none; border: 0; padding: 0;
+  cursor: pointer; color: var(--text); font-family: var(--font-body); font-weight: 500; font-size: .98rem;
+}
+.nav__submenu-toggle:hover, .nav__submenu-toggle.is-current,
+.nav__item--has-menu:hover .nav__submenu-toggle,
+.nav__item--has-menu:focus-within .nav__submenu-toggle { color: var(--orange); }
+.nav__chev { width: 16px; height: 16px; transition: transform .2s ease; }
+.nav__item--has-menu:hover .nav__chev,
+.nav__item--has-menu:focus-within .nav__chev,
+.nav__submenu-toggle[aria-expanded="true"] .nav__chev { transform: rotate(180deg); }
+.nav__submenu {
+  list-style: none; margin: 0; padding: .5rem; position: absolute; top: 100%; left: 50%;
+  transform: translateX(-50%) translateY(6px); min-width: 200px;
+  background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius-sm);
+  box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 2px;
+  opacity: 0; visibility: hidden; transition: opacity .18s ease, transform .18s ease; z-index: 70;
+}
+/* hover bridge so the cursor can cross the gap without the menu closing */
+.nav__submenu::before { content: ""; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
+.nav__item--has-menu:hover .nav__submenu,
+.nav__item--has-menu:focus-within .nav__submenu,
+.nav__submenu-toggle[aria-expanded="true"] + .nav__submenu {
+  opacity: 1; visibility: visible; transform: translateX(-50%) translateY(6px);
+}
+.nav__submenu a {
+  display: block; padding: .5rem .8rem; border-radius: 8px; font-weight: 500; font-size: .95rem; line-height: 1.3; white-space: nowrap;
+}
+.nav__submenu a:hover, .nav__submenu a[aria-current="page"] { color: var(--orange); background: rgba(232,119,34,.1); }
 .nav__cta { display: flex; align-items: center; gap: .75rem; }
 .nav__phone { display: inline-flex; align-items: center; gap: .4rem; font-family: var(--font-display); font-weight: 600; color: var(--text); white-space: nowrap; }
 .nav__phone:hover { color: var(--orange); }
@@ -321,6 +353,17 @@ li { margin-bottom: .4rem; }
   }
   .site-header.nav-open .nav__links li { width: 100%; }
   .site-header.nav-open .nav__links a { display: block; padding: .85rem 0; width: 100%; border-bottom: 1px solid var(--line); }
+  /* Services submenu becomes a static, tap-to-expand accordion on mobile */
+  .nav__submenu-toggle { width: 100%; justify-content: space-between; padding: .85rem 0; border-bottom: 1px solid var(--line); font-size: 1rem; }
+  .nav__submenu {
+    position: static; transform: none; opacity: 1; visibility: visible; min-width: 0; box-shadow: none;
+    background: transparent; border: 0; border-radius: 0; padding: 0; overflow: hidden; max-height: 0;
+    transition: max-height .25s ease;
+  }
+  .nav__item--has-menu:hover .nav__submenu, .nav__item--has-menu:focus-within .nav__submenu { transform: none; }
+  .nav__submenu-toggle[aria-expanded="true"] + .nav__submenu { transform: none; max-height: 420px; }
+  .nav__submenu::before { display: none; }
+  .nav__submenu a { padding: .7rem 0 .7rem 1rem; border-bottom: 1px solid var(--line); border-radius: 0; }
   .grid--3, .grid--2, .quotes, .steps, .field--row { grid-template-columns: 1fr; }
   h1 { font-size: clamp(2rem, 8vw, 2.6rem); }
 }

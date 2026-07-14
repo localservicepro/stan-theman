@@ -19,6 +19,27 @@
     });
   }
 
+  // Services dropdown — click/tap/keyboard toggle (desktop also reveals on CSS hover)
+  var submenuToggles = document.querySelectorAll(".nav__submenu-toggle");
+  submenuToggles.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      var expanded = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", expanded ? "false" : "true");
+    });
+  });
+  // Close any open submenu on outside click or Escape
+  document.addEventListener("click", function (e) {
+    submenuToggles.forEach(function (btn) {
+      if (!btn.parentNode.contains(e.target)) btn.setAttribute("aria-expanded", "false");
+    });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      submenuToggles.forEach(function (btn) { btn.setAttribute("aria-expanded", "false"); });
+    }
+  });
+
   // Header shadow on scroll
   if (header) {
     var onScroll = function () {
