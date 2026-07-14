@@ -50,12 +50,11 @@ To swap any photo, drop a replacement over the same filename (keep it landscape/
 except `hero.webp` which is portrait 4:5). The contact page still uses a placeholder
 box for the **Google Map** embed (that's a map slot, not a photo).
 
-### ⚠️ Meet-the-team photos are placeholders
-The **About → Meet the team** section uses three **portrait (4:5) placeholder tiles**
-that say "photo coming soon": `assets/img/team-stan.webp`, `team-sarah.webp`,
-`team-deanna.webp`. The real photos (Stan's beanie selfie, Sarah on her horse, Deanna
-cleaning a window) were not in the client's Drive folder, so drop the real ones over
-these exact filenames (portrait ~4:5, e.g. 900×1125) to replace the placeholders.
+### Meet-the-team photos
+The **About → Meet the team** section uses three **portrait (4:5)** photos of Stan,
+Sarah and Deanna: `assets/img/team-stan.webp`, `team-sarah.webp`, `team-deanna.webp`.
+To swap any of them, drop a replacement over the same filename (portrait ~4:5,
+e.g. 900×1125).
 
 ## ✅ Before launch — swap these placeholders
 1. **Reviews.** The testimonials on the homepage are representative placeholders.
