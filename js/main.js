@@ -79,6 +79,38 @@
     el.textContent = new Date().getFullYear();
   });
 
+  // Stat count-up (animates the number, preserving any prefix/suffix like + ★ %)
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function countUp(el) {
+    var raw = el.textContent.trim();
+    var m = raw.match(/^(\D*)(\d+)(.*)$/);
+    if (!m) return;
+    var pre = m[1], target = parseInt(m[2], 10), suf = m[3];
+    if (reduceMotion) { return; }
+    var start = null, dur = 1100;
+    function step(ts) {
+      if (start === null) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var val = Math.floor((0.5 - Math.cos(Math.PI * p) / 2) * target); // ease-in-out
+      el.textContent = pre + val + suf;
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = pre + target + suf;
+    }
+    requestAnimationFrame(step);
+  }
+  var statWrap = document.querySelector(".stats");
+  if (statWrap && "IntersectionObserver" in window) {
+    var sio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          statWrap.querySelectorAll(".stat__num").forEach(countUp);
+          sio.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+    sio.observe(statWrap);
+  }
+
   // Contact form — let GoHighLevel's tracking script capture the submit, then
   // redirect to the thank-you page with a clean URL (no PII in the query string).
   // No-JS fallback: the form's own method="GET" action="thank-you.html" still works.

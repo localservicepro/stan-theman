@@ -150,30 +150,29 @@
   <main>
     <!-- ============ HERO ============ -->
     <section class="hero">
-      <svg class="hero__ring" viewBox="0 0 400 400" fill="none" aria-hidden="true">
-        <circle cx="200" cy="200" r="150" stroke="#E87722" stroke-width="3" stroke-dasharray="14 12" opacity="0.5"/>
-        <circle cx="200" cy="200" r="110" stroke="#E87722" stroke-width="2" opacity="0.25"/>
-      </svg>
+      <div class="hero__bg">
+        <img src="assets/img/hero-bg.webp" width="1600" height="900" alt="Stan The Man Cleaning using a water-fed pole to clean a glass facade under blue skies in Melbourne's Eastern Suburbs" loading="eager" fetchpriority="high" decoding="async" />
+      </div>
+      <div class="hero__overlay"></div>
       <div class="wrap">
-        <div class="hero__grid">
-          <div>
-            <p class="eyebrow">Melbourne's Eastern Suburbs</p>
-            <h1>Window, Gutter &amp; <span>Exterior Cleaning</span> Done Properly</h1>
-            <p class="hero__sub">Streak-free windows, safely cleared gutters, and spotless driveways and rooflines. Stan The Man Cleaning is your fully insured, locally owned exterior cleaning team across Melbourne's Eastern Suburbs.</p>
-            <div class="hero__actions">
-              <a class="btn btn--primary btn--lg" href="contact.html">Get a Free Quote</a>
-              <a class="btn btn--ghost btn--lg" href="tel:+61411188458">Call 0411 188 458</a>
-            </div>
-            <ul class="chips">
-              <li class="chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1 3 5v6c0 5 3.8 9.7 9 11 5.2-1.3 9-6 9-11V5l-9-4Zm-1.2 14.2L7 11.4l1.4-1.4 2.4 2.4 4.8-4.8L17 9l-6.2 6.2Z"/></svg>Fully Insured</li>
-              <li class="chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V6l-8-4Z"/></svg>Locally Owned</li>
-              <li class="chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 17.3 6.2 3.7-1.6-7 5.4-4.7-7.1-.6L12 2 9.1 8.7 2 9.3l5.4 4.7-1.6 7L12 17.3Z"/></svg>5-Star Rated</li>
-            </ul>
+        <div class="hero__content">
+          <p class="eyebrow reveal" style="--d:0">Melbourne's Eastern Suburbs</p>
+          <h1 class="reveal" style="--d:1">Window, Gutter &amp; <span>Exterior Cleaning</span> Done Properly</h1>
+          <p class="hero__sub reveal" style="--d:2">Streak-free windows, safely cleared gutters, and spotless driveways and rooflines. Stan The Man Cleaning is your fully insured, locally owned exterior cleaning team across Melbourne's Eastern Suburbs.</p>
+          <div class="hero__actions reveal" style="--d:3">
+            <a class="btn btn--primary btn--lg" href="contact.html">Get a Free Quote</a>
+            <a class="btn btn--ghost btn--lg" href="tel:+61411188458">Call 0411 188 458</a>
           </div>
-          <figure class="hero__card">
-            <img src="assets/img/hero.webp" width="900" height="1125" alt="Stan The Man Cleaning using a water-fed pole to clean windows on a Melbourne home" loading="eager" fetchpriority="high" decoding="async" />
-          </figure>
+          <ul class="chips reveal" style="--d:4">
+            <li class="chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1 3 5v6c0 5 3.8 9.7 9 11 5.2-1.3 9-6 9-11V5l-9-4Zm-1.2 14.2L7 11.4l1.4-1.4 2.4 2.4 4.8-4.8L17 9l-6.2 6.2Z"/></svg>Fully Insured</li>
+            <li class="chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V6l-8-4Z"/></svg>Locally Owned</li>
+            <li class="chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 17.3 6.2 3.7-1.6-7 5.4-4.7-7.1-.6L12 2 9.1 8.7 2 9.3l5.4 4.7-1.6 7L12 17.3Z"/></svg>5-Star Rated</li>
+          </ul>
         </div>
+      </div>
+      <div class="hero__badge reveal" style="--d:5">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <div><b>Rated 5.0</b><span>Google &amp; Facebook</span></div>
       </div>
     </section>
 
@@ -213,50 +212,77 @@
           <h2>Five exterior cleaning services, one local team</h2>
           <p class="lead muted max-60">Whether it's a one-off spring clean or regular maintenance, we tailor every job to your property. Explore what we do below.</p>
         </div>
-        <div class="grid grid--3 reveal">
-          <article class="card">
+        <div class="service-cards reveal">
+          <a class="service-card" href="services/window-cleaning.html">
+            <img class="service-card__img" src="assets/img/window-cleaning.webp" width="900" height="675" alt="Window cleaning in Melbourne's Eastern Suburbs" loading="lazy" decoding="async" />
             <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 3v18M3 12h18"/></svg></div>
             <h3>Window Cleaning</h3>
-            <p>Streak-free windows inside and out — including frames, tracks, sills and flyscreens — using purified water for a spotless, lasting shine.</p>
-            <a class="card__link" href="services/window-cleaning.html">Window cleaning Melbourne <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </article>
-          <article class="card">
+            <p>Streak-free windows inside and out — frames, tracks, sills and flyscreens — with purified water for a lasting shine.</p>
+            <span class="service-card__link">Window cleaning Melbourne <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="service-card" href="services/gutter-cleaning.html">
+            <img class="service-card__img" src="assets/img/gutter-cleaning.webp" width="900" height="675" alt="Gutter cleaning before and after in Melbourne" loading="lazy" decoding="async" />
             <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16l-1.5 5.5a4 4 0 0 1-3.9 3H10a4 4 0 0 1-3.9-3L4 7Z"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
             <h3>Gutter Cleaning</h3>
-            <p>Blocked gutters cause leaks and water damage. We safely clear leaves and debris, flush downpipes and leave your gutters flowing freely.</p>
-            <a class="card__link" href="services/gutter-cleaning.html">Gutter cleaning Melbourne <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </article>
-          <article class="card">
+            <p>We safely clear leaves and debris, flush downpipes and leave your gutters flowing freely — protecting your home.</p>
+            <span class="service-card__link">Gutter cleaning Melbourne <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="service-card" href="services/pressure-washing.html">
+            <img class="service-card__img" src="assets/img/pressure-washing.webp" width="900" height="675" alt="Driveway before and after pressure washing in Melbourne" loading="lazy" decoding="async" />
             <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3v5M14 5.5c3 0 5 2 5 5V21H9v-6l-4 1v-4l4-1V8.5C9 5.5 11 3 14 3Z"/></svg></div>
             <h3>Pressure Washing</h3>
-            <p>Driveways, paths, patios and retaining walls restored. High-pressure cleaning lifts years of grime, moss, oil and algae in one visit.</p>
-            <a class="card__link" href="services/pressure-washing.html">Pressure washing Melbourne <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </article>
-          <article class="card">
+            <p>Driveways, paths and patios restored. High-pressure cleaning lifts years of grime, moss, oil and algae in one visit.</p>
+            <span class="service-card__link">Pressure washing Melbourne <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="service-card" href="services/soft-washing.html">
+            <img class="service-card__img" src="assets/img/soft-washing.webp" width="900" height="675" alt="Roof before and after soft washing in Melbourne" loading="lazy" decoding="async" />
             <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3s6 5 6 10a6 6 0 1 1-12 0c0-5 6-10 6-10Z"/></svg></div>
             <h3>Soft Washing</h3>
-            <p>A gentle, low-pressure wash that safely removes mould, mildew and algae from render, cladding and rooflines without any damage.</p>
-            <a class="card__link" href="services/soft-washing.html">Soft washing Melbourne <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </article>
-          <article class="card">
+            <p>A gentle, low-pressure wash that safely removes mould, mildew and algae from render, cladding and rooflines.</p>
+            <span class="service-card__link">Soft washing Melbourne <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="service-card" href="services/solar-panel-cleaning.html">
+            <img class="service-card__img" src="assets/img/solar-panel-cleaning.webp" width="900" height="675" alt="Solar panel cleaning in progress on a Melbourne rooftop" loading="lazy" decoding="async" />
             <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M7 4 6 16M12 4v12M17 4l1 12M2 20h20"/></svg></div>
             <h3>Solar Panel Cleaning</h3>
-            <p>Dust and grime can rob panels of efficiency. Our safe, streak-free clean helps restore lost output and protect your investment.</p>
-            <a class="card__link" href="services/solar-panel-cleaning.html">Solar panel cleaning Melbourne <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </article>
-          <article class="card" style="justify-content:center; background:linear-gradient(160deg,#241606,#1a1206); border-color:rgba(232,119,34,.4)">
+            <p>Dust and grime rob panels of efficiency. Our safe, streak-free clean helps restore lost output and protect your investment.</p>
+            <span class="service-card__link">Solar panel cleaning Melbourne <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <article class="service-card service-card--cta">
             <h3>Not sure what you need?</h3>
-            <p>Tell us about your property and we'll recommend the right clean — and bundle multiple services to save you money.</p>
+            <p>Tell us about your property and we'll recommend the right clean — and bundle services to save you money.</p>
             <a class="btn btn--primary" href="contact.html">Get a free quote</a>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ============ WHY US ============ -->
-    <section class="section section--tint">
+    <!-- ============ BEFORE / AFTER GALLERY ============ -->
+    <section class="section section--tint" id="results">
       <div class="wrap">
-        <div class="split split--center">
+        <div class="section-head center max-60 reveal" style="margin-inline:auto">
+          <p class="eyebrow" style="justify-content:center">Real results</p>
+          <h2>See the difference — recent local jobs</h2>
+          <p class="lead muted">A few before-and-afters from real properties across Melbourne's Eastern Suburbs. This is the standard of finish you can expect.</p>
+        </div>
+        <div class="gallery reveal">
+          <figure><span class="gallery__tag">Before / After</span><img src="assets/img/ba-gutter.webp" width="760" height="570" alt="Gutter before and after cleaning in Melbourne's Eastern Suburbs" loading="lazy" decoding="async" /><figcaption>Gutter clean &amp; downpipe flush</figcaption></figure>
+          <figure><span class="gallery__tag">Before / After</span><img src="assets/img/ba-driveway.webp" width="760" height="570" alt="Driveway before and after pressure washing in Melbourne" loading="lazy" decoding="async" /><figcaption>Driveway pressure wash</figcaption></figure>
+          <figure><span class="gallery__tag">Before / After</span><img src="assets/img/ba-steps.webp" width="760" height="570" alt="Sandstone steps before and after pressure washing in Melbourne" loading="lazy" decoding="async" /><figcaption>Sandstone steps restored</figcaption></figure>
+          <figure><span class="gallery__tag">Before / After</span><img src="assets/img/ba-patio.webp" width="760" height="570" alt="Paved patio before and after pressure washing in Melbourne" loading="lazy" decoding="async" /><figcaption>Paved patio &amp; steps</figcaption></figure>
+          <figure><span class="gallery__tag">Before / After</span><img src="assets/img/ba-roof.webp" width="760" height="570" alt="Roof before and after soft washing in Melbourne" loading="lazy" decoding="async" /><figcaption>Roof soft wash</figcaption></figure>
+          <figure><span class="gallery__tag">On the job</span><img src="assets/img/ba-solar.webp" width="760" height="570" alt="Solar panel cleaning in progress on a Melbourne rooftop" loading="lazy" decoding="async" /><figcaption>Solar panel clean</figcaption></figure>
+        </div>
+        <div class="center" style="margin-top:2rem">
+          <a class="btn btn--primary btn--lg" href="contact.html">Get your free quote</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHY US ============ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="split split--fill">
           <div class="reveal">
             <p class="eyebrow">Why choose us</p>
             <h2>Reliable, insured and genuinely local</h2>
@@ -319,7 +345,7 @@
     <!-- ============ SEO CONTENT ============ -->
     <section class="section">
       <div class="wrap">
-        <div class="split split--center">
+        <div class="split split--fill">
           <div class="prose reveal">
             <p class="eyebrow">Exterior cleaning done right</p>
             <h2>Exterior cleaning built for Eastern Suburbs homes</h2>
