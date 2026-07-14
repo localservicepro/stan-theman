@@ -90,6 +90,15 @@ fields are named to map straight into GHL:
 4. (Optional, most robust) To guarantee exact mapping without relying on auto-detect,
    we can switch to a GHL **Inbound Webhook** instead — just ask.
 
+## Online booking (Timely)
+The header **Book Online** button and every hero / call-to-action **Book Online** button
+link (in a new tab) to the client's Timely booking page:
+```
+https://bookings.gettimely.com/stanthemancleaningservices/book?uri=https%3A%2F%2Fbook.gettimely.com%2FBooking%2FLocation%2F232772%3Fmobile%3DTrue%26params%3D%25253fclient-login%25253dtrue
+```
+The phone number is kept as plain text in the footer and contact details so visitors
+can still call or text. To change the booking link, find-and-replace the URL above.
+
 ## SEO / AEO / GEO built in
 - Unique titles, meta descriptions, canonicals, OG/Twitter tags per page
 - `CleaningService` (LocalBusiness) + `Service` + `FAQPage` + `BreadcrumbList`
