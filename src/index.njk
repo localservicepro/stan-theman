@@ -419,5 +419,20 @@ eleventyExcludeFromCollections: true
 
   <script src="js/main.js" defer></script>
   <script src="https://link.msgsndr.com/js/external-tracking.js" data-tracking-id="tk_b39dadcc3417438a8921cebf538d145d"></script>
+
+  <!-- Netlify Identity: catches invite / password-recovery links (which land on the
+       homepage) and opens the set-password dialog, then sends editors to /admin. -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function (user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function () {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
 </body>
 </html>
