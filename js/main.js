@@ -58,20 +58,28 @@
     el.textContent = new Date().getFullYear();
   });
 
-  // Contact form — graceful no-backend handling
+  // Contact form — let GoHighLevel's tracking script capture the submit, then
+  // redirect to the thank-you page with a clean URL (no PII in the query string).
+  // No-JS fallback: the form's own method="GET" action="thank-you.html" still works.
   var form = document.querySelector("form[data-quote-form]");
   if (form) {
     form.addEventListener("submit", function (e) {
-      // If action is still the placeholder, prevent submit and show guidance.
-      if (form.getAttribute("action") === "#" || form.dataset.demo === "true") {
-        e.preventDefault();
-        var msg = form.querySelector(".form-status");
-        if (msg) {
-          msg.hidden = false;
-          msg.textContent = "Thanks! This demo form isn't connected yet — please call 0411 188 458 or email info@stanthemancleaning.com.au and we'll get straight back to you.";
-          msg.focus();
-        }
+      // Let the browser show native validation for required fields.
+      if (typeof form.checkValidity === "function" && !form.checkValidity()) {
+        return; // do not prevent default — browser will display the validation UI
       }
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+      var msg = form.querySelector(".form-status");
+      if (msg) {
+        msg.hidden = false;
+        msg.textContent = "Thanks! Sending your request…";
+      }
+      // Small delay so GHL's own submit listener can capture the field values first.
+      setTimeout(function () {
+        window.location.href = form.getAttribute("action") || "thank-you.html";
+      }, 300);
     });
   }
 })();

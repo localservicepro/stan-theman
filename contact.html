@@ -81,13 +81,15 @@
         <div class="form-card">
           <h2 style="margin-bottom:.4rem">Request a quote</h2>
           <p class="muted">Fields marked * are required.</p>
-          <!-- To connect this form: set the action to your Formspree endpoint or booking URL,
-               and remove data-demo="true". See README.md. -->
-          <form data-quote-form data-demo="true" action="#" method="POST" novalidate>
+          <!-- Field name attributes map to GoHighLevel fields (full_name, phone, email,
+               property_address, service_needed, job_notes). The GHL external tracking
+               script near the end of the page captures the submission. On submit the
+               browser (or js/main.js) navigates to thank-you.html. -->
+          <form data-quote-form id="quote-form" name="Website Quote Request" action="thank-you.html" method="GET">
             <div class="field--row">
               <div class="field">
                 <label for="name">Name *</label>
-                <input id="name" name="name" type="text" autocomplete="name" required />
+                <input id="name" name="full_name" type="text" autocomplete="name" required />
               </div>
               <div class="field">
                 <label for="phone">Phone *</label>
@@ -100,13 +102,13 @@
                 <input id="email" name="email" type="email" autocomplete="email" />
               </div>
               <div class="field">
-                <label for="suburb">Suburb</label>
-                <input id="suburb" name="suburb" type="text" placeholder="e.g. Doncaster" />
+                <label for="property_address">Property address</label>
+                <input id="property_address" name="property_address" type="text" autocomplete="street-address" placeholder="e.g. 12 Smith St, Doncaster VIC" />
               </div>
             </div>
             <div class="field">
               <label for="service">Service needed</label>
-              <select id="service" name="service">
+              <select id="service" name="service_needed">
                 <option value="">Select a service…</option>
                 <option>Window Cleaning</option>
                 <option>Gutter Cleaning</option>
@@ -119,8 +121,9 @@
             </div>
             <div class="field">
               <label for="message">Tell us about the job</label>
-              <textarea id="message" name="message" placeholder="Single or double storey, approx. size, anything else we should know…"></textarea>
+              <textarea id="message" name="job_notes" placeholder="Single or double storey, approx. size, anything else we should know…"></textarea>
             </div>
+            <input type="hidden" name="source" value="Website – Contact Page" />
             <button class="btn btn--primary btn--lg btn--block" type="submit">Send my request</button>
             <p class="form-status" tabindex="-1" role="status" hidden style="margin-top:1rem;color:var(--orange)"></p>
             <p class="form-note">Prefer to talk? Call or text Stan directly on <a href="tel:+61411188458">0411 188 458</a>.</p>
@@ -164,5 +167,6 @@
     </div>
   </footer>
   <script src="js/main.js" defer></script>
+  <script src="https://link.msgsndr.com/js/external-tracking.js" data-tracking-id="tk_b39dadcc3417438a8921cebf538d145d"></script>
 </body>
 </html>

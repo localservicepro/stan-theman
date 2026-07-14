@@ -46,20 +46,44 @@ python3 -m http.server 8000
    images live in the client's Google Drive folder
    (`Stan The Man (Exterior) Cleaning`). Add an `assets/og-image.jpg`
    (1200×630) for social sharing — it's already referenced in the homepage `<head>`.
-2. **Contact form endpoint.** In `contact.html` the `<form>` has
-   `data-demo="true"` and `action="#"`. Point `action` at your form handler
-   (e.g. a [Formspree](https://formspree.io) endpoint or your LocalServicePro /
-   booking URL) and remove `data-demo="true"` so it submits for real.
-3. **Reviews.** The testimonials on the homepage are representative placeholders.
+2. **Reviews.** The testimonials on the homepage are representative placeholders.
    Swap in real Google/Facebook reviews (and consider a live review widget +
    `AggregateRating` schema once reviews are connected).
-4. **Map.** Embed a Google Map of the Donvale service area on `contact.html`
+3. **Map.** Embed a Google Map of the Donvale service area on `contact.html`
    (placeholder is marked).
-5. **Confirm domain/NAP.** Everything targets `stanthemancleaning.com.au`. If the
+4. **Confirm domain/NAP.** Everything targets `stanthemancleaning.com.au`. If the
    final email differs (e.g. `info@stanthemanclean.com.au` from onboarding),
    find-and-replace before launch.
-6. **Search setup.** Verify Google Business Profile, connect Google Search
+5. **Search setup.** Verify Google Business Profile, connect Google Search
    Console + GA4, and submit `sitemap.xml`.
+
+## GoHighLevel (GHL) CRM integration
+The **GHL external tracking script** is installed site-wide (before `</body>` on
+every page) — it tracks page views and captures form submissions:
+```html
+<script src="https://link.msgsndr.com/js/external-tracking.js" data-tracking-id="tk_b39dadcc3417438a8921cebf538d145d"></script>
+```
+The quote form on `contact.html` submits, then redirects to `thank-you.html`. Its
+fields are named to map straight into GHL:
+
+| Form field | `name` attribute | GHL field |
+|---|---|---|
+| Name | `full_name` | Contact name (`{{contact.name}}`) |
+| Phone | `phone` | `{{contact.phone}}` |
+| Email | `email` | `{{contact.email}}` |
+| Property address | `property_address` | `{{contact.property_address}}` (custom) |
+| Service needed | `service_needed` | `{{contact.service_needed}}` (custom) |
+| Tell us about the job | `job_notes` | `{{contact.job_notes}}` (custom) |
+
+**In GHL, before/at launch:**
+1. Create the three **custom fields** if they don't already exist:
+   `property_address`, `service_needed`, `job_notes`.
+2. Deploy to the live domain (GHL doesn't reliably capture from `localhost`/preview).
+3. Submit **one test lead** through the live form, open the new contact in GHL, and
+   confirm all six fields are populated. If any value lands as `unmapped_field`, map
+   it once in the tracking settings — it maps automatically from then on.
+4. (Optional, most robust) To guarantee exact mapping without relying on auto-detect,
+   we can switch to a GHL **Inbound Webhook** instead — just ask.
 
 ## SEO / AEO / GEO built in
 - Unique titles, meta descriptions, canonicals, OG/Twitter tags per page
