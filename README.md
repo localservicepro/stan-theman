@@ -54,13 +54,13 @@ box for the **Google Map** embed (that's a map slot, not a photo).
 1. **Reviews.** The testimonials on the homepage are representative placeholders.
    Swap in real Google/Facebook reviews (and consider a live review widget +
    `AggregateRating` schema once reviews are connected).
-2. **Map.** Embed a Google Map of the Donvale service area on `contact.html`
-   (placeholder is marked).
-3. **Confirm domain/NAP.** Everything targets `stanthemancleaning.com.au`. If the
+2. **Confirm domain/NAP.** Everything targets `stanthemancleaning.com.au`. If the
    final email differs (e.g. `info@stanthemanclean.com.au` from onboarding),
    find-and-replace before launch.
-4. **Search setup.** Verify Google Business Profile, connect Google Search
+3. **Search setup.** Verify Google Business Profile, connect Google Search
    Console + GA4, and submit `sitemap.xml`.
+
+*(Done: the Google Map embed for the business location is live on `contact.html`.)*
 
 ## GoHighLevel (GHL) CRM integration
 The **GHL external tracking script** is installed site-wide (before `</body>` on
