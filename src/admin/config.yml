@@ -1,0 +1,42 @@
+# Decap CMS configuration.
+# IMPORTANT: 'branch' below must match the branch Netlify deploys (your production branch).
+backend:
+  name: git-gateway
+  branch: claude/stan-cleaning-website-rebuild-pqfqrv
+
+# Uploaded images are committed here and served from /assets/img on the site
+media_folder: "src/assets/img"
+public_folder: "/assets/img"
+
+site_url: https://www.stanthemancleaning.com.au
+display_url: https://www.stanthemancleaning.com.au
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    delete: false
+    files:
+      - name: "business"
+        label: "Business details (used site-wide)"
+        file: "src/_data/site.json"
+        description: "Phone, email, hours, address, booking link and social links. Changing these updates the whole site."
+        fields:
+          - { label: "Business name", name: "name", widget: "string" }
+          - { label: "Phone (as shown)", name: "phone", widget: "string", hint: "e.g. 0411 188 458" }
+          - { label: "Phone (dial link)", name: "phoneTel", widget: "string", hint: "International format, e.g. +61411188458" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Address", name: "address", widget: "string" }
+          - { label: "Opening hours", name: "hours", widget: "string" }
+          - { label: "Online booking link", name: "bookingUrl", widget: "string" }
+          - { label: "Facebook URL", name: "facebook", widget: "string" }
+          - { label: "Instagram URL", name: "instagram", widget: "string" }
+          - { label: "Footer blurb", name: "footerBlurb", widget: "text" }
+          - label: "Services menu"
+            name: "services"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Page slug (do not change)", name: "slug", widget: "string" }
+              - { label: "Menu thumbnail file", name: "thumb", widget: "string", hint: "Filename in assets/img, e.g. nav-window.webp" }
+              - { label: "One-line description", name: "desc", widget: "string" }

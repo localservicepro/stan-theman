@@ -1,0 +1,19 @@
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="{{ prefix }}index.html" aria-label="Stan The Man Cleaning home"><img class="brand__mark" src="{{ prefix }}assets/img/brand-icon.png" alt="" width="38" height="38" decoding="async" /><span class="brand__name">Stan The <b>Man</b></span></a>
+          <p class="muted" style="margin-top:1rem">{{ site.footerBlurb }}</p>
+          <div class="socials"><a href="{{ site.facebook }}" aria-label="Facebook" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2c0-.6.4-1 1-1Z"/></svg></a><a href="{{ site.instagram }}" aria-label="Instagram" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a></div>
+        </div>
+        <div><h4>Services</h4><ul>
+{%- for s in site.services %}
+          <li><a href="{{ svcPrefix }}{{ s.slug }}.html">{{ s.title }}</a></li>
+{%- endfor %}
+        </ul></div>
+        <div><h4>Company</h4><ul><li><a href="{{ prefix }}about.html">About Us</a></li><li><a href="{{ prefix }}contact.html">Contact</a></li><li><a href="{{ prefix }}contact.html">Get a Quote</a></li><li><a href="{{ prefix }}privacy-policy.html">Privacy Policy</a></li></ul></div>
+        <div><h4>Get in touch</h4><ul><li><a href="tel:{{ site.phoneTel }}">{{ site.phone }}</a></li><li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li><li><p>{{ site.address }}</p></li><li><p>{{ site.hours }}</p></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; <span data-year>2026</span> Stan The Man Cleaning. All rights reserved.</p><p>Window · Gutter · Pressure Washing · Soft Wash · Solar — Melbourne Eastern Suburbs</p></div>
+    </div>
+  </footer>
