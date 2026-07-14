@@ -319,6 +319,32 @@ li { margin-bottom: .4rem; }
 .media-shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .hero__card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
+/* ---- Meet the team ---- */
+.team-section .section-head { text-align: center; }
+.team { display: grid; }
+.team-member {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(1.5rem, 5vw, 4rem); align-items: center;
+  padding: clamp(2rem, 5vw, 3.5rem) 0;
+}
+.team-member + .team-member { border-top: 1px solid var(--line); }
+.team-member__photo {
+  margin: 0; width: 100%; max-width: 420px; justify-self: center;
+  border-radius: var(--radius); overflow: hidden; background: var(--surface-2);
+  border: 1px solid var(--line); border-bottom: 3px solid var(--orange);
+  box-shadow: var(--shadow); aspect-ratio: 4/5;
+}
+.team-member__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.team-member:nth-child(even) .team-member__photo { order: 2; }
+.team-member__role {
+  display: inline-block; font-size: .82rem; font-weight: 700; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--orange);
+  background: rgba(232, 119, 34, .1); border: 1px solid rgba(232, 119, 34, .28);
+  padding: .28rem .7rem; border-radius: 999px;
+}
+.team-member__body h3 { font-size: clamp(1.5rem, 3.5vw, 2rem); margin: .7rem 0 .6rem; }
+.team-member__body p { color: var(--muted); max-width: 52ch; }
+
 /* ---- Forms ---- */
 .form-card { background: var(--surface-1); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.5rem, 4vw, 2.4rem); }
 .field { margin-bottom: 1.1rem; }
@@ -446,6 +472,10 @@ html.js .reveal { transition-delay: calc(var(--d, 0) * 80ms); }
   .stats { grid-template-columns: 1fr 1fr; }
   .hero { min-height: 78vh; }
   .hero__badge { display: none; }
+  .team-member { grid-template-columns: 1fr; gap: 1.4rem; text-align: center; }
+  .team-member__photo { order: 0 !important; max-width: 340px; }
+  .team-member__role { margin-inline: auto; }
+  .team-member__body p { margin-inline: auto; }
 }
 @media (max-width: 760px) {
   .nav__links, .nav__phone { display: none; }
