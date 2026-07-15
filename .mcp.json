@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "novamira-visual-llgi56icb": {
+      "command": "npx",
+      "args": ["-y", "novamira-visual-mcp@latest"],
+      "env": {
+        "NOVAMIRA_VISUAL_WORKSPACE_URL": "https://llgi56icbm.wpdns.site/wp-admin/admin-post.php?action=novamira-visual"
+      }
+    }
+  }
+}
