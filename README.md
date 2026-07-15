@@ -3,12 +3,9 @@
 A modern, fast, SEO/AEO/GEO-optimised static website for **Stan The Man Cleaning**,
 an exterior cleaning business servicing Melbourne's Eastern Suburbs.
 
-Built with **Eleventy (11ty)** — plain HTML/CSS/vanilla JS templated into static
-pages, deployed on **Netlify**, and editable by the client through **Decap CMS**
-(a free, open-source, Git-based CMS at `/admin`). No database, no server.
-
-Page sources live in `src/` as `.njk` (Nunjucks) templates; `npm run build`
-outputs the finished static site to `_site/` (which Netlify publishes).
+Built as plain HTML + CSS + a little vanilla JS — no build step, no framework.
+Just open the files or drop them on any static host (Netlify, Cloudflare Pages,
+Vercel, S3, or Wix's own hosting).
 
 ## Pages
 | File | Purpose |
@@ -38,49 +35,11 @@ Shared: `css/styles.css`, `js/main.js`, `assets/`, `sitemap.xml`, `robots.txt`,
 - **Address:** 5 Allinga Place, Donvale VIC 3111
 - **Socials:** Facebook + Instagram (`stanthemancleaningservices`)
 
-## Run / build locally
+## Run locally
 ```bash
-npm install        # once
-npm start          # dev server with live reload  → http://localhost:8080
-npm run build      # production build → _site/
+python3 -m http.server 8000
+# then open http://localhost:8000
 ```
-
-## Project structure
-```
-src/
-  index.njk, about.njk, contact.njk, thank-you.njk, privacy-policy.njk
-  services/*.njk               # 5 service pages
-  _includes/header.njk footer.njk   # shared header/footer (design lives here once)
-  _data/site.json              # global business details — what the CMS edits
-  admin/index.html config.yml  # Decap CMS
-  css/ js/ assets/             # copied through unchanged
-.eleventy.js                   # build config
-netlify.toml                   # Netlify build: `npm run build` → publish `_site`
-```
-
-## Editing the site (Decap CMS)
-The client edits content at **`https://your-domain/admin`** — no code. Saving a
-change **commits to this GitHub repo → Netlify rebuilds automatically** (~30s).
-
-**What's editable today (Site Settings):** business name, phone (display + dial),
-email, address, opening hours, online booking link, Facebook/Instagram URLs, the
-footer blurb, and the Services menu (titles + descriptions). These live in
-`src/_data/site.json` and update **everywhere** on the site (header, footer,
-contact, schema). Images can be uploaded/replaced via the CMS media library
-(stored in `src/assets/img`).
-*Next increments we can add as editable: homepage hero text, each service page's
-intro & FAQs, and testimonials.*
-
-### One-time setup to turn the CMS on (agency)
-1. In **Netlify → Site configuration → Build & deploy**, confirm build command
-   `npm run build` and publish directory `_site` (already set via `netlify.toml`).
-2. **Netlify → Identity → Enable Identity.** Under **Registration**, set to
-   *Invite only*. Under **Services → Git Gateway**, click **Enable Git Gateway**.
-3. In `src/admin/config.yml`, make sure `backend.branch` matches your Netlify
-   **production branch** (currently `claude/stan-cleaning-website-rebuild-pqfqrv`
-   — rename/point this to `main` if you make main your production branch).
-4. **Invite the client:** Netlify → Identity → **Invite users** (their email).
-   They set a password and log in at `/admin` with edit access. You stay the owner.
 
 ## Photos
 Real job photos (from the client's Google Drive) are installed and self-hosted in
