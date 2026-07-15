@@ -1,13 +1,8 @@
 {
   "mcpServers": {
     "novamira-llgi56icbm-wpdns": {
-      "command": "npx",
-      "args": ["-y", "@automattic/mcp-wordpress-remote@latest"],
-      "env": {
-        "WP_API_URL": "https://llgi56icbm.wpdns.site/wp-json/mcp/novamira",
-        "WP_API_USERNAME": "stantheman",
-        "WP_API_PASSWORD": "${WP_API_PASSWORD}"
-      }
+      "type": "http",
+      "url": "https://llgi56icbm.wpdns.site/wp-json/mcp/novamira-oauth"
     }
   }
 }
