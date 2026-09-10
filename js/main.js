@@ -121,28 +121,27 @@
     sio.observe(statWrap);
   }
 
-  // Contact form — let GoHighLevel's tracking script capture the submit, then
-  // redirect to the thank-you page with a clean URL (no PII in the query string).
-  // No-JS fallback: the form's own method="GET" action="thank-you.html" still works.
-  var form = document.querySelector("form[data-quote-form]");
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      // Let the browser show native validation for required fields.
+  // Quote forms — GoHighLevel's external-tracking.js captures the NATIVE submit
+  // event to sync the lead to a contact. Per GHL's rules we must NOT block or
+  // bypass that native submit (no preventDefault, no AJAX takeover), so this only
+  // adds a non-blocking "sending" state and lets the browser submit the form
+  // natively to thank-you.html (method="GET"). thank-you.html then strips the
+  // query string from the URL so no details linger in the address bar/history.
+  document.querySelectorAll("form[data-quote-form]").forEach(function (form) {
+    form.addEventListener("submit", function () {
+      // Invalid required fields: bail out and let the browser show native validation.
+      // (The browser itself cancels the submit in this case — we never call preventDefault.)
       if (typeof form.checkValidity === "function" && !form.checkValidity()) {
-        return; // do not prevent default — browser will display the validation UI
+        return;
       }
-      e.preventDefault();
       var btn = form.querySelector('button[type="submit"]');
-      if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+      if (btn) { btn.textContent = "Sending…"; }
       var msg = form.querySelector(".form-status");
       if (msg) {
         msg.hidden = false;
         msg.textContent = "Thanks! Sending your request…";
       }
-      // Small delay so GHL's own submit listener can capture the field values first.
-      setTimeout(function () {
-        window.location.href = form.getAttribute("action") || "thank-you.html";
-      }, 300);
+      // No preventDefault — the native submit proceeds so GHL captures the fields.
     });
-  }
+  });
 })();

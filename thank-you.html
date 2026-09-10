@@ -16,6 +16,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <script>document.documentElement.classList.add('js');</script>
+  <script>
+    // The quote form submits natively (GET) so GoHighLevel's tracking script can
+    // capture the lead. Once we land here, drop the field values from the URL so
+    // no personal details remain in the address bar or browser history.
+    if (location.search) { try { history.replaceState(null, '', location.pathname + location.hash); } catch (e) {} }
+  </script>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
