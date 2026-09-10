@@ -121,27 +121,44 @@
     sio.observe(statWrap);
   }
 
-  // Quote forms — GoHighLevel's external-tracking.js captures the NATIVE submit
-  // event to sync the lead to a contact. Per GHL's rules we must NOT block or
-  // bypass that native submit (no preventDefault, no AJAX takeover), so this only
-  // adds a non-blocking "sending" state and lets the browser submit the form
-  // natively to thank-you.html (method="GET"). thank-you.html then strips the
-  // query string from the URL so no details linger in the address bar/history.
-  document.querySelectorAll("form[data-quote-form]").forEach(function (form) {
+  // Quote forms → GoHighLevel.
+  // GHL's external-tracking.js syncs a lead by capturing the form's NATIVE submit
+  // event, so we must not block or cancel it (no preventDefault, no AJAX takeover).
+  // But a plain native submit navigates away immediately, which can abort GHL's
+  // send before it completes. Fix: target each form at a hidden iframe. The native
+  // submit still fires (GHL captures it) but the response loads into the iframe, so
+  // the page stays put and GHL finishes sending; we then redirect to the thank-you
+  // page ourselves. With JS off, the form still submits natively to /thank-you.
+  document.querySelectorAll("form[data-quote-form]").forEach(function (form, i) {
+    var sinkName = "stm-lead-sink-" + i;
+    var sink = document.createElement("iframe");
+    sink.name = sinkName;
+    sink.hidden = true;
+    sink.tabIndex = -1;
+    sink.setAttribute("aria-hidden", "true");
+    sink.title = "Form submission handler";
+    document.body.appendChild(sink);
+    form.setAttribute("target", sinkName);
+
+    var sent = false;
     form.addEventListener("submit", function () {
-      // Invalid required fields: bail out and let the browser show native validation.
-      // (The browser itself cancels the submit in this case — we never call preventDefault.)
-      if (typeof form.checkValidity === "function" && !form.checkValidity()) {
-        return;
-      }
+      // Invalid required fields: let the browser show validation and cancel the submit.
+      if (typeof form.checkValidity === "function" && !form.checkValidity()) return;
+      if (sent) return; // guard against double submits
+      sent = true;
+
       var btn = form.querySelector('button[type="submit"]');
-      if (btn) { btn.textContent = "Sending…"; }
+      if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
       var msg = form.querySelector(".form-status");
       if (msg) {
         msg.hidden = false;
         msg.textContent = "Thanks! Sending your request…";
       }
-      // No preventDefault — the native submit proceeds so GHL captures the fields.
+
+      // The native submit into the hidden iframe has fired (GHL is capturing it).
+      // Give the tracking request time to complete, then take the visitor onward.
+      var dest = form.getAttribute("action") || "/thank-you";
+      setTimeout(function () { window.location.href = dest; }, 1500);
     });
   });
 })();
