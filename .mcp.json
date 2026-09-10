@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "novamira-llgi56icbm-wpdns": {
+      "type": "http",
+      "url": "https://llgi56icbm.wpdns.site/wp-json/mcp/novamira-oauth"
+    }
+  }
+}
